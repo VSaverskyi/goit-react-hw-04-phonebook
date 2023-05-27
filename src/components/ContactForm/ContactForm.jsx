@@ -24,14 +24,20 @@ const ContactForm = ({ onSubmit }) => {
     }
 
     const handleChange = e => {
-        if (e.target.name === 'name') {
-            setName(e.target.value);
-            return; 
+        const { name, value } = e.target;
+
+        switch (name) {
+            case 'name':
+                setName(value);
+                break;
+            
+            case 'number':
+                setNumber(value);
+                break;
+        
+            default:
+                console.warn(`Field type name - ${name} not processing!`);
         }
-        if (e.target.name === 'number') {
-            setNumber(e.target.value);
-            return;
-        } 
     }
 
     return (
