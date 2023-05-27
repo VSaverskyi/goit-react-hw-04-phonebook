@@ -1,18 +1,15 @@
-import { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { ButtonDelete, ListItemData, ListItemWrapper } from "./ContactListItem.styled";
 
-class ContactListItem extends Component {
-    render() {
-        const {  item, onDeleteBtn } = this.props;
-        return (
-            <ListItemWrapper>
-                <ListItemData>{item.name}:</ListItemData>
-                <ListItemData>{item.number}:</ListItemData>
-                <ButtonDelete type="button" onClick={() => onDeleteBtn(item.id)}>delete</ButtonDelete>
-            </ListItemWrapper>
-        )
-    }
+const ContactListItem = ({item, onDeleteBtn}) => {
+    return (
+        <ListItemWrapper>
+            <ListItemData>{item.name}:</ListItemData>
+            <ListItemData>{item.number}:</ListItemData>
+            <ButtonDelete type="button" onClick={() => onDeleteBtn(item.id)}>delete</ButtonDelete>
+        </ListItemWrapper>
+    )
 }
 
 export default ContactListItem;
